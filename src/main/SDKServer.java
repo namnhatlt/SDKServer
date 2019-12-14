@@ -88,10 +88,10 @@ public class SDKServer {
             			rawMsg.add(message.getContentAsImageMessage().getUrl());
             			break;
             		// Carousel message Object
-            		case BotConstant.CAROUSEL_MESSAGE:
-            			System.out.println(message.getContentAsCarouselMessage().getCarouselCards());
-            			rawMsg.add(message.getContentAsCarouselMessage().getCarouselCards().toString());
-            			break;
+//            		case BotConstant.CAROUSEL_MESSAGE:
+//            			System.out.println(message.getContentAsCarouselMessage().getCarouselCards());
+//            			rawMsg.add(message.getContentAsCarouselMessage().getCarouselCards().toString());
+//            			break;
 //            		// Form message
 //            		case BotConstant.FORM_MESSAGE:
 //            			System.out.println(message.getContentAsFormMessage().getText());

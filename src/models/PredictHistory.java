@@ -1,7 +1,7 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PredictHistory {
@@ -11,11 +11,12 @@ public class PredictHistory {
 	@JsonProperty("data")
 	private Data data;
 	
-	@JsonProperty("historyId")
+	@JsonProperty("history_id")
 	private int historyId;
 	
 	@JsonProperty("type")
 	private String type;
+	
 	
 	public Status getStatus() {
 		return status;
