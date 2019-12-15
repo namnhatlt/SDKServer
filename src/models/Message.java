@@ -19,18 +19,34 @@ public class Message {
 	@JsonProperty("content")
 	private Object content;
 
+	/**
+	 * Get type of message
+	 * @return type of message
+	 */
 	public String getType() {
 		return type;
 	}
 
+	/**
+	 * Set type of message
+	 * @param type 
+	 */
 	public void setType(String type) {
 		this.type = type;
 	}
 
+	/**
+	 * Get content of message
+	 * @return content of message
+	 */
 	public Object getContent() {
 		return content;
 	}
 
+	/**
+	 * Set content of message
+	 * @param content
+	 */
 	public void setContent(Object content) {
 		this.content = content;
 	}
@@ -39,12 +55,19 @@ public class Message {
 		super();
 	}
 
+	/**
+	 * Constructor with 2 parameters
+	 * @param type
+	 * @param content
+	 */
 	public Message(String type, Object content) {
 		this.type = type;
 		this.content = content;
 	}
 
 //	Get content as Message type
+	
+	// Text message
 	@JsonIgnore
 	public TextContent getContentAsTextMessage() throws InValidMessageTypeException {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -57,6 +80,7 @@ public class Message {
 		}
 	}
 
+	// Image message
 	@JsonIgnore
 	public ImageContent getContentAsImageMessage() throws InValidMessageTypeException {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -69,6 +93,7 @@ public class Message {
 		}
 	}
 
+	// Carousel message
 //	@JsonIgnore
 //	public CarouselContent getContentAsCarouselMessage() throws InValidMessageTypeException {
 //		ObjectMapper objectMapper = new ObjectMapper();
@@ -81,6 +106,7 @@ public class Message {
 //		}
 //	}
 
+	// Form message
 	@JsonIgnore
 	public TextContent getContentAsFormMessage() throws InValidMessageTypeException {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -93,6 +119,7 @@ public class Message {
 		}
 	}
 
+	// Quick reply message
 	@JsonIgnore
 	public TextContent getContentAsQuickReplyMessage() throws InValidMessageTypeException {
 		ObjectMapper objectMapper = new ObjectMapper();

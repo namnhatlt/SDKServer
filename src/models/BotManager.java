@@ -34,58 +34,117 @@ public class BotManager {
 
 	private BaseRequest baseRequest;
 
+	/**
+	 * Get bot host
+	 * @return bot host
+	 */
 	public String getBotHost() {
 		return botHost;
 	}
 
+	/**
+	 * Set bot host
+	 * @param botHost 
+	 */
 	public void setBotHost(String botHost) {
 		this.botHost = botHost;
 	}
 
+	/**
+	 * Get bot token
+	 * @return bot token
+	 */
 	public String getBotToken() {
 		return botToken;
 	}
 
+	/**
+	 * Set bot token
+	 * @param botToken
+	 */
 	public void setBotToken(String botToken) {
 		this.botToken = botToken;
 	}
 
+	/**
+	 * Get API
+	 * @return API Chatbot
+	 */
 	public String getApiChatBot() {
 		return apiChatBot;
 	}
 
+	/**
+	 * Set apiChatBot
+	 * @param apiChatBot
+	 */
 	public void setApiChatBot(String apiChatBot) {
 		this.apiChatBot = apiChatBot;
 	}
-
+	
+	/**
+	 * Get API bot info
+	 * @return API bot info
+	 */
 	public String getApiBotInfo() {
 		return apiBotInfo;
 	}
 
+	/**
+	 * Set API bot info
+	 * @param apiBotInfo
+	 */
 	public void setApiBotInfo(String apiBotInfo) {
 		this.apiBotInfo = apiBotInfo;
 	}
 
+	/**
+	 * Get bot channel
+	 * @return bot channel
+	 */
 	public String getChannel() {
 		return channel;
 	}
 
+	/**
+	 * Set bot channel
+	 * @param channel
+	 */
 	public void setChannel(String channel) {
 		this.channel = channel;
 	}
 
+	/**
+	 * Get base request
+	 * @return base request
+	 */
 	public BaseRequest getBaseRequest() {
 		return baseRequest;
 	}
-
+	/**
+	 * Set Base Request
+	 * @param baseRequest
+	 */
 	public void setBaseRequest(BaseRequest baseRequest) {
 		this.baseRequest = baseRequest;
 	}
-
+	
+	/**
+	 * Set bot code
+	 * @param botCode
+	 */
 	public void setBotCode(String botCode) {
 		this.botCode = botCode;
 	}
 
+	/**
+	 * Constructor with 5 parameters
+	 * @param bot_host
+	 * @param api_chat_bot
+	 * @param api_bot_info
+	 * @param bot_token
+	 * @param channel
+	 */
 	public BotManager(String bot_host, String api_chat_bot, String api_bot_info, String bot_token, String channel) {
 		this.botHost = bot_host;
 		this.botToken = bot_token;
@@ -96,6 +155,12 @@ public class BotManager {
 		this.baseRequest = new BaseRequest(this.channel, this.botCode);
 	}
 
+	/**
+	 * Constructor with 3 parameters
+	 * @param bot_host
+	 * @param bot_token
+	 * @param channel
+	 */
 	public BotManager(String bot_host, String bot_token, String channel) {
 		this.botHost = bot_host;
 		this.botToken = bot_token;
@@ -104,6 +169,11 @@ public class BotManager {
 		this.baseRequest = new BaseRequest(this.channel, this.botCode);
 	}
 
+	/**
+	 * Constructor with 2 parameters
+	 * @param bot_token
+	 * @param channel
+	 */
 	public BotManager(String bot_token, String channel) {
 		this.botToken = bot_token;
 		this.channel = channel;
@@ -111,6 +181,10 @@ public class BotManager {
 		this.baseRequest = new BaseRequest(this.channel, this.botCode);
 	}
 
+	/**
+	 * Constructor with 1 parameter
+	 * @param bot_token
+	 */
 	public BotManager(String bot_token) {
 		this.botToken = bot_token;
 		this.botCode = getBotCode();
@@ -121,12 +195,14 @@ public class BotManager {
 		
 	}
 
+	// Build text message
 	public BotManager buildTextMessage(String content) {
 		Message ms = new Message("text", content);
 		this.baseRequest.setMessage(ms);
 		return this;
 	}
-
+	
+	// Build text message
 	public BotManager buildPayLoadMessage(String step_name, HashMap<String, String> attributes) {
 		String payload = new Payload(attributes).build();
 		String content = "";
@@ -139,6 +215,7 @@ public class BotManager {
 		return this;
 	}
 
+	// Send message
 	public String sendMessage(String sender_id) {
 		this.baseRequest.setSenderId(sender_id);
 		ObjectMapper Obj = new ObjectMapper();
@@ -173,6 +250,7 @@ public class BotManager {
 
 	}
 
+	// Convert response to object
 	public BotResponse parseResponse(String response) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		BotResponse res = null;
@@ -188,6 +266,10 @@ public class BotManager {
 		return res;
 	}
 
+	/**
+	 * Get bot code
+	 * @return bot code
+	 */
 	private String getBotCode() {
 		URL url;
 		try {

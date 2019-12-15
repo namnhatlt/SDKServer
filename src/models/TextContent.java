@@ -13,18 +13,34 @@ public class TextContent {
 	@JsonProperty("buttons")
 	private ArrayList<Button> buttons;
 
+	/**
+	 * Get text content
+	 * @return text
+	 */
 	public String getText() {
 		return text;
 	}
-
+	
+	/**
+	 * Set text content
+	 * @param text
+	 */
 	public void setText(String text) {
 		this.text = text;
 	}
 
+	/**
+	 * Get buttons
+	 * @return buttons
+	 */
 	public ArrayList<Button> getButtons() {
 		return buttons;
 	}
 
+	/**
+	 * Set buttons
+	 * @param buttons
+	 */
 	public void setButtons(ArrayList<Button> buttons) {
 		this.buttons = buttons;
 	}

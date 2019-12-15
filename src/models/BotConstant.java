@@ -1,9 +1,12 @@
 package models;
 
 public class BotConstant {
+	// Channel
 	public static final String CHANNEL_API = "api";
 	public static final String CHANNEL_FACEBOOK = "facebook";
 	
+	
+	// Type of message
 	public static final String TEXT_MESSAGE = "text";
 	public static final String IMAGE_MESSAGE = "image";
 //	public static final String CAROUSEL_MESSAGE = "carousel";

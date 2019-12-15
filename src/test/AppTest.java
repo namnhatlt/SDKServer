@@ -15,51 +15,50 @@ import models.BotManager;
  * Unit test for simple App.
  */
 public class AppTest {
-	// Địa chỉ của chat bot
+	// Application url
 	String bot_host = "https://4bc7c6a2.ngrok.io";
 
-	// Token của chat bot
+	// Bot token
 	String bot_token = "4c4687d95d0e75f72b76b5a0ab33738b";
 
-	// Channel của chat bot bao gồm:
-	// CHANNEL_API, CHANNEL_FACEBOOK, CHANNEL_LIVECHAT,
-	// CHANNEL_ZALO,CHANNEL_VIBER,CHANNEL_FACEBOOK_AT_WORK
+	// Bot channel
 	String channel = BotConstant.CHANNEL_API;
 	BotManager bmn = new BotManager(bot_host, bot_token, channel);
 
-	// Gửi tin nhắn dạng payload
-	@Test
-	public void testSendPayLoadRequest() {
-
-		// Tạo nội dung payload
-		HashMap<String, String> attributes = new HashMap<>();
-
-		// Gán biến name = chatbot trên
-		attributes.put("name", "chatbot");
-
-		// Đi đến bước Step
-		String step_name = "Step";
-
-		// ID của người tham gia chat
-		String sender_id = "5d7d5b30acb2a068698aeb2ed7176075";
-		// Gửi message tới sender_id đã được chỉ định
-		assertEquals(bmn.buildPayLoadMessage(step_name, attributes).sendMessage(sender_id), "Success");
-	}
+//	// Payload message
+//	@Test
+//	public void testSendPayLoadRequest() {
+//
+//		// Create payload
+//		HashMap<String, String> attributes = new HashMap<>();
+//
+//		// Add attribute
+//		attributes.put("name", "chatbot");
+//
+//		// Go to step
+//		String step_name = "Step";
+//
+//		// User id
+//		String sender_id = "5d7d5b30acb2a068698aeb2ed7176075";
+//		
+//		// Send message to sender_id 
+//		assertEquals(bmn.buildPayLoadMessage(step_name, attributes).sendMessage(sender_id), "Success");
+//	}
 	
 	public void setBotCode(BotManager bot, String botCode) {
 		bot.setBotCode(botCode);
 	}
 
-	// Gửi tin nhắn dạng text
+	// Text message
 	@Test
 	public void testSendTextRequest() {
-		// Nội dung tin nhắn
+		// Content
 		String content = "Cảm ơn";
 
-		// ID của người tham gia chat
+		// User id
 		String sender_id = "5d7d5b30acb2a068698aeb2ed7176075";
 		
-		// Gửi message tới sender_id đã được chỉ định
+		// Send message to sender_id 
 		assertEquals(bmn.buildTextMessage(content).sendMessage(sender_id), "Success");
 	}
 
